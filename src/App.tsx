@@ -9,15 +9,11 @@ function App() {
   }
 
   function isEven(nmbr: number): boolean {
-    if (nmbr % 2 === 0) {
-      return true;
-    } else {
-      return false;
-    }
+    return nmbr % 2 === 0;
   }
 
   function getParityMessage(bln: boolean): string {
-    if (bln == true) {
+    if (bln === true) {
       return "number is even";
     } else {
       return "number is not even";
@@ -26,7 +22,7 @@ function App() {
 
   function processString(str?: string | number | boolean): string | undefined {
     if (str !== undefined) {
-      return `Expression ${str} has ${countCharacters(
+      return `Expression "${str}" has ${countCharacters(
         expression
       )} characters in it and this ${getParityMessage(
         isEven(countCharacters(expression))
@@ -36,12 +32,11 @@ function App() {
     }
   }
 
-  console.log(processString());
-
   return (
     <>
       <h3>Introduction to TS</h3>
       <div>{processString(expression)}</div>
+      <div>{processString()}</div>
     </>
   );
 }
