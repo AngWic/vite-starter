@@ -1,35 +1,49 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const expression = "coffee";
+
+  function countCharacters(strng: string): number {
+    const numberOfCharacters = strng.length;
+    return numberOfCharacters;
+  }
+
+  function isEven(nmbr: number): boolean {
+    if (nmbr % 2 == 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  function getParityMessage(bln: boolean): string {
+    if (bln == true) {
+      return "number is even";
+    } else {
+      return "number is not even";
+    }
+  }
+
+  function processString(str?: string | number | boolean): string | undefined {
+    if (expression !== undefined) {
+      return `Expression ${expression} has ${countCharacters(
+        expression
+      )} characters in it and this ${getParityMessage(
+        isEven(countCharacters(expression))
+      )}.`;
+    } else {
+      return "Expression not known, nothing to count.";
+    }
+  }
+
+  console.log(processString());
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <h3>Introduction to TS</h3>
+      <div>{processString(expression)}</div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
