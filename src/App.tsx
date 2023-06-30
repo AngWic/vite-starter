@@ -9,7 +9,7 @@ function App() {
   }
 
   function isEven(nmbr: number): boolean {
-    if (nmbr % 2 == 0) {
+    if (nmbr % 2 === 0) {
       return true;
     } else {
       return false;
@@ -25,8 +25,8 @@ function App() {
   }
 
   function processString(str?: string | number | boolean): string | undefined {
-    if (expression !== undefined) {
-      return `Expression ${expression} has ${countCharacters(
+    if (str !== undefined) {
+      return `Expression ${str} has ${countCharacters(
         expression
       )} characters in it and this ${getParityMessage(
         isEven(countCharacters(expression))
