@@ -33,8 +33,8 @@ function WordParser() {
   return (
     <>
       <h3>Introduction to TS</h3>
-      <div>{processString(expression)}</div>
-      <div>{processString()}</div>
+      <div>Example 1: {processString(expression)}</div>
+      <div>Example 2: {processString()}</div>
     </>
   );
 }
